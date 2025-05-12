@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+:root {
+  --background: oklch(0.97 0 0);
+  --foreground: oklch(0.2 0 0);
+  --border: oklch(0.92 0.004 286.32);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.2 0 0);
+    --foreground: oklch(0.97 0 0);
+    --border: oklch(0.97 0 0 / 10%);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --font-sans: var(--font-satoshi);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground selection:bg-foreground selection:text-background font-sans antialiased;
+  }
+}
+
+@layer components {
+  .button {
+    @apply cursor-pointer font-mono font-medium underline-offset-4 hover:underline focus-visible:underline;
+  }
+}
+
+@layer utilities {
+  .dashed {
+    @apply border-border border-dashed;
+  }
+}
