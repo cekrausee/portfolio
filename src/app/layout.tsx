@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 const sans = localFont({
-  src: '../../assets/fonts/satoshi.ttf',
+  src: '../assets/fonts/satoshi.ttf',
   variable: '--font-satoshi'
 })
 
