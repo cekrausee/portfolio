@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export const middleware = (req: NextRequest) => {
-  if (process.env.NODE_ENV !== 'production' && req.nextUrl.pathname === '/next') return NextResponse.redirect('https://next.cekrause.eu')
+  if (process.env.NODE_ENV === 'production' && req.nextUrl.pathname === '/next') return NextResponse.redirect('https://next.cekrause.eu')
   return NextResponse.next()
 }
 
