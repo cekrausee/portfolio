@@ -40,12 +40,12 @@
 
 @layer components {
   .button {
-    @apply cursor-pointer font-mono font-medium underline-offset-4 hover:underline focus-visible:underline;
+    @apply cursor-pointer font-mono text-sm font-medium underline-offset-4 hover:underline focus-visible:underline md:text-base;
   }
 }
 
 @layer utilities {
   .title {
-    @apply text-7xl leading-tight;
+    @apply text-3xl leading-tight md:text-7xl;
   }
 }

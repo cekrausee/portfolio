@@ -4,11 +4,11 @@ import { Link } from '@/components/link'
 import { ReactNode } from 'react'
 
 const List = ({ children, label }: { children: ReactNode; label: string }) => (
-  <div className='space-y-1.5'>
+  <div className='space-y-3'>
     <div>
-      <label>{label}</label>
+      <label className='text-sm md:text-base'>{label}</label>
     </div>
-    <ul>{children}</ul>
+    <ul className='space-y-1.5'>{children}</ul>
   </div>
 )
 
@@ -20,7 +20,7 @@ export const Page = () => (
         <br />
         Software engineer
       </h1>
-      <h2 className='pl-1'>
+      <h2 className='p-[1px] text-sm md:pl-1 md:text-base'>
         <span>Coding for </span>
         <Link
           href='https://clinia.io'
@@ -32,7 +32,7 @@ export const Page = () => (
         <span>. Based in Lisbon.</span>
       </h2>
     </div>
-    <div className='space-y-6 pl-1'>
+    <div className='space-y-6 p-[1px] md:pl-1'>
       <List label='Social'>
         <li>
           <Link

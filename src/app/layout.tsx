@@ -31,11 +31,11 @@ const Layout = async ({ children, index, next }: { children: ReactNode; index: R
     <html lang='en'>
       <body className={(sans.variable, mono.variable)}>
         <Spawn className='flex h-svh'>
-          <div className='w-24 border-r border-dashed'>
-            <div className='h-24 border-b border-dashed' />
+          <div className='md:w-24 md:border-r md:border-dashed'>
+            <div className='md:h-24 md:border-b md:border-dashed' />
           </div>
           <div className='flex-1'>
-            <div className='h-24 w-full border-b border-dashed' />
+            <div className='md:h-24 md:border-b md:border-dashed' />
             <Spawn
               className='p-8'
               triggeredByPathname
