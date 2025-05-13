@@ -6,6 +6,7 @@ import { Check, Copy } from 'lucide-react'
 import { useRef, useState } from 'react'
 
 export const NextPage = () => {
+  const command = 'bunx @cekrause/next@latest'
   const [copied, setCopied] = useState(false)
   const timeout = useRef<NodeJS.Timeout | null>(null)
 
@@ -17,11 +18,12 @@ export const NextPage = () => {
       </div>
       <div className='flex pl-1'>
         <div className='text-muted-foreground flex items-center justify-between gap-x-12 rounded-sm text-sm'>
-          <span className='font-mono'>$ bunx @cekrause/next</span>
+          <span className='font-mono'>$ {command}</span>
           <button
             onClick={() => {
               if (timeout.current) return
 
+              navigator.clipboard.writeText(command)
               setCopied(true)
 
               timeout.current = setTimeout(() => {
