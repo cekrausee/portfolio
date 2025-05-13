@@ -41,8 +41,8 @@ const Layout = async ({ children, index, next }: { children: ReactNode; index: R
               triggeredByPathname
             >
               {!production && children}
-              {production && host === 'www.cekrause.eu' && index}
-              {production && host === 'www.next.cekrause.eu' && next}
+              {production && host === 'cekrause.eu' && index}
+              {production && host === 'next.cekrause.eu' && next}
             </Spawn>
           </div>
         </Spawn>
