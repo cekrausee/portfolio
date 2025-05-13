@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
 import { Geist_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
-import { headers } from 'next/headers'
+import { headers as Headers } from 'next/headers'
 import { ReactNode } from 'react'
 import './index.css'
 
@@ -23,8 +23,9 @@ const mono = Geist_Mono({
 })
 
 const Layout = async ({ children, index, next }: { children: ReactNode; index: ReactNode; next: ReactNode }) => {
-  const h = await headers()
-  const host = h.get('host')
+  const production = process.env.NODE_ENV === 'production'
+  const headers = await Headers()
+  const host = headers.get('host')
 
   return (
     <html lang='en'>
@@ -39,9 +40,9 @@ const Layout = async ({ children, index, next }: { children: ReactNode; index: R
               className='p-8'
               triggeredByPathname
             >
-              {host?.startsWith('localhost') && children}
-              {host === 'cekrause.eu' && index}
-              {host === 'next.cekrause.eu' && next}
+              {!production && children}
+              {production && host === 'www.cekrause.eu' && index}
+              {production && host === 'www.next.cekrause.eu' && next}
             </Spawn>
           </div>
         </Spawn>

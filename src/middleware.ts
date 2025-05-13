@@ -2,9 +2,7 @@ import { notFound } from 'next/navigation'
 import { NextRequest, NextResponse } from 'next/server'
 
 export const middleware = (req: NextRequest) => {
-  const { host, pathname } = req.nextUrl
-
-  if (!host.startsWith('localhost') && pathname === '/next') notFound()
+  if (process.env.NODE_ENV !== 'production' && req.nextUrl.pathname === '/next') notFound()
   return NextResponse.next()
 }
 
